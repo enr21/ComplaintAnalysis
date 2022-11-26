@@ -18,8 +18,8 @@ def HarmCount(complaint, harm):
     return Count
 
 # Calculate the probability of occurrence to determine occurrence ranking
-def Occurrence(HarmCount, units):
-    probability = (HarmCount / units)
+def Occurrence(count, units):
+    probability = (count / units)
     if probability <= O1:
         OccRank = "O1"
     elif probability > O1 and probability <= O2:
