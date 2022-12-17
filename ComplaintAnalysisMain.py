@@ -1,11 +1,26 @@
-import ComplaintLib
+'''
+Emily Roman
+16:137:552 Final Project
+Medical Device Complaint Analysis Tool
+Complaint Analysis Main Program
+'''
 
-Divider = "------------------------------------------------------"
-SoldUnits = 100000000
+import ComplaintLib
+from datetime import datetime
+
+Divider = "----------------------------------------------------------"
+
+# Prints a welcome message when initiating program
+print("Welcome to the Medical Device Complaint Analysis tool!")
+print(Divider)
+
+# Open sku files and create list with sku information (sku numbers and units sold each month)
+ListDevAinfo = ComplaintLib.OpenFile("skuListA.txt")
+ListDevBinfo = ComplaintLib.OpenFile("skuListB.txt")
 
 # Uses skuList function defined in the ComplaintLib library to create a list of skus from a given txt file
-skuListA = ComplaintLib.skuList("SKUDeviceA.txt")
-skuListB = ComplaintLib.skuList("SKUDeviceB.txt")
+skuListA = ComplaintLib.skuList(ListDevAinfo)
+skuListB = ComplaintLib.skuList(ListDevBinfo)
 
 # Function defined obtaining user input to determine which analysis type to perform
 def InputAnalysis():
@@ -39,7 +54,7 @@ def InputDevice():
     device = input("Please enter the device you wish to analyze: ")
     # If user does not enter "Device A" or "Device B", while loop will repeatedly execute promoting user to input a valid device name
     # While loop will terminate once user inputs "Device A" or "Device B"
-    while device != "Device A" or device != "Device B":
+    while device != "Device A" and device != "Device B":
         print(Divider)
         device = input("Please enter a valid device name: ")
     return device
@@ -68,77 +83,78 @@ def InputHarm():
         print(Divider)
         harm = input("Please enter one of the options listed above: ")
 
-# Function defined to create data stack for a given SKU and given harm
-def CreateSKUStack(dataFile, skuType, harmType):
-    AnalysisStack = ComplaintLib.skuStack(dataFile, skuType, harmType)
-    return AnalysisStack
-
-# Function defined to create data stack for a given device and given harm
-def CreateDeviceStack(dataFile, skuListA, skuListB, deviceType, harmType):
-    if deviceType == "Device A":
-        skuList = skuListA
-    elif deviceType == "Device B":
-        skuList = skuListB
-    AnalysisStack = ComplaintLib.DeviceStack(dataFile, skuList, deviceType, harmType)
-    return AnalysisStack
-
-# Function defined to print analysis results
-def PrintAnalysis(harm, stack, units):
-    print("Complaint Analysis for " + str(harm) + ":")
-    total = 0
-    for i in ComplaintLib.MonthList:
-        count = stack.count(i)
-        total += count
-        occurrence = ComplaintLib.Occurrence(count, units)
-        print(i + " - complaints received: " + str(count))
-        print(i + " - occurrence ranking: " + occurrence)
-    print("Total number of complaints received " + ": " + str(total))
-    print(Divider)
-
+# Function defined to prompt user to rerun or quit program
+def InputRerun():
+    print("Thank you for using the Medical Device Complaint Analysis Tool!")
+    print("Enter 1 to perform another analysis")
+    print("Enter any other other character to quit program")
+    RerunInput = input("")
+    if RerunInput == "1":
+        print(Divider)
+        main()
+    
 def main():
     # Start of Complaint Analysis tool
-    print("Welcome to the Medical Device Complaint Analysis tool!")
+    # Prompts user to input filename to be analyzed
+    while True:
+        try:
+            ComplaintFile = input("Please enter a filename to analyze: ")
+            ComplaintInfo = ComplaintLib.OpenFile(ComplaintFile)
+            break
+        # Error handling implemented; if filename provided by user is not found, user will be re-prompted to enter a filename
+        except FileNotFoundError:
+            print("File not found. Please try again.")
+            print(Divider)
     print(Divider)
     
-    # Prompts user to input filename to be analyzed
-    # Using OverwriteComplaint function defined in the Complaint Lib library, data is cleaned for analysis
-    dataFile = input("Please enter a filename to analyze: ")
-    ComplaintLib.OverwriteComplaint(dataFile)
-    print(Divider)
+    # Using OverwriteComplaint function defined in the ComplaintLib library, data is cleaned for analysis
+    ComplaintList = ComplaintLib.OverwriteComplaint(ComplaintInfo)
     
     # Prompts user to input desired analysis type using the defined InputAnalysis function
-    # If user chooses SKU analysis, the program prompts the user to identify SKU number using the defined InputSKU function
-    # If user chooses Device analysis, the program prompts the user to idenify device name using the defined InputDevice function
     AnalysisType = InputAnalysis()
     print(Divider)
+    # If user chooses SKU analysis ("1"), the program prompts the user to identify SKU number using the defined InputSKU function
     if AnalysisType == "1":
-        skuType = InputSKU(skuListA, skuListB)
+        skuType = int(InputSKU(skuListA, skuListB))
+        UnitsSold = ComplaintLib.IdentifyUnitsSKU(ListDevAinfo, ListDevBinfo, skuType)
+        AnalysisObject = "SKU " + str(skuType)
+    # If user chooses Device analysis ("2"), the program prompts the user to idenify device name using the defined InputDevice function
     elif AnalysisType == "2":
         deviceType = InputDevice()
+        AnalysisObject = deviceType
+        if deviceType == "Device A":
+            UnitsSold = ComplaintLib.IdentifyUnitsDevice(ListDevAinfo)
+        elif deviceType == "Device B":
+            UnitsSold = ComplaintLib.IdentifyUnitsDevice(ListDevBinfo)
     print(Divider)
-    
-    # Prompts user to input desired harm to analyze using the defined InputHarm function
+
+    # Prompts user to input harm to analyze using the defined InputHarm function
     harmType = int(InputHarm())
     if harmType < 10:
         ComplaintHarm = ComplaintLib.HarmList[harmType - 1]
     print(Divider)
 
-    # Program creates/analyzes data stacks based on user inputs 
+    # Program creates/analyzes data stacks based on user analysis and harm inputs
+    # If the user chose to analyze all harms, program iterates through each harm - creating/analyzing data stacks for each harm
+    date = str(datetime.now())
     if harmType == 10:
         for i in ComplaintLib.HarmList:
             if AnalysisType == "1":
-                AnalysisStack = CreateSKUStack(dataFile, skuType, i)
-                PrintAnalysis(i, AnalysisStack, SoldUnits)
+                AnalysisStack = ComplaintLib.CreateSKUStack(ComplaintList, skuType, i)
             elif AnalysisType == "2":
-                AnalysisStack = CreateDeviceStack(dataFile, skuListA, skuListB, deviceType, i)
-                PrintAnalysis(i, AnalysisStack, SoldUnits)
+                AnalysisStack = ComplaintLib.CreateDeviceStack(ComplaintList, skuListA, skuListB, deviceType, i)
+            # Program prints, creates report, and creates plots of the analysis results
+            ComplaintLib.ResultOutput(AnalysisObject, i, AnalysisStack, UnitsSold, date, ComplaintFile)
+    # If the user chose to analyze one harm, data stack is created for that harm and analyzed
     else:
         if AnalysisType == "1":
-            AnalysisStack = CreateSKUStack(dataFile, skuType, ComplaintHarm)
-            PrintAnalysis(ComplaintHarm, AnalysisStack, SoldUnits)
+            AnalysisStack = ComplaintLib.CreateSKUStack(ComplaintList, skuType, ComplaintHarm)
         elif AnalysisType == "2":
-            AnalysisStack = CreateDeviceStack(dataFile, skuListA, skuListB, deviceType, ComplaintHarm)
-            PrintAnalysis(ComplaintHarm, AnalysisStack, SoldUnits)
- 
+            AnalysisStack = ComplaintLib.CreateDeviceStack(ComplaintList, skuListA, skuListB, deviceType, ComplaintHarm)
+        # Program prints, creates report, and creates plots of the analysis results
+        ComplaintLib.ResultOutput(AnalysisObject, ComplaintHarm, AnalysisStack, UnitsSold, date, ComplaintFile)
+
+    InputRerun()
+    
 if __name__ == '__main__':
     main()
