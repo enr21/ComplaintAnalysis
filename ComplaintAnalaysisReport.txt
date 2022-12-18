@@ -1,54 +1,90 @@
 File analyzed: ComplaintData2022.txt
-Analysis performed on: 2022-12-17 20:31:20.276751
-
-Complaint Analysis for SKU 10002
-Jan: 0 bleeding complaints - occurrence ranking O1
-Feb: 1 bleeding complaints - occurrence ranking O5
-Mar: 2 bleeding complaints - occurrence ranking O5
-Apr: 1 bleeding complaints - occurrence ranking O5
-May: 0 bleeding complaints - occurrence ranking O1
-Jun: 0 bleeding complaints - occurrence ranking O1
-Jul: 0 bleeding complaints - occurrence ranking O1
-Aug: 0 bleeding complaints - occurrence ranking O1
-Sep: 0 bleeding complaints - occurrence ranking O1
-Oct: 0 bleeding complaints - occurrence ranking O1
-Nov: 0 bleeding complaints - occurrence ranking O1
-Dec: 1 bleeding complaints - occurrence ranking O5
-Total number of bleeding complaints received: 5
-----------------------------------------------------------
-File analyzed: ComplaintData2022.txt
-Analysis performed on: 2022-12-17 20:32:52.770315
+Analysis performed on: 2022-12-18 02:39:23.460081
 
 Complaint Analysis for Device B
-Jan: 45 death complaints - occurrence ranking O4
-Feb: 46 death complaints - occurrence ranking O4
-Mar: 35 death complaints - occurrence ranking O4
-Apr: 45 death complaints - occurrence ranking O4
-May: 41 death complaints - occurrence ranking O4
-Jun: 46 death complaints - occurrence ranking O4
-Jul: 45 death complaints - occurrence ranking O4
-Aug: 52 death complaints - occurrence ranking O4
-Sep: 41 death complaints - occurrence ranking O4
-Oct: 37 death complaints - occurrence ranking O4
-Nov: 40 death complaints - occurrence ranking O4
-Dec: 42 death complaints - occurrence ranking O4
-Total number of death complaints received: 515
+Jan: 47 pain complaints - occurrence ranking O4
+Feb: 45 pain complaints - occurrence ranking O4
+Mar: 48 pain complaints - occurrence ranking O4
+Apr: 39 pain complaints - occurrence ranking O4
+May: 57 pain complaints - occurrence ranking O4
+Jun: 48 pain complaints - occurrence ranking O4
+Jul: 51 pain complaints - occurrence ranking O4
+Aug: 53 pain complaints - occurrence ranking O4
+Sep: 49 pain complaints - occurrence ranking O4
+Oct: 52 pain complaints - occurrence ranking O4
+Nov: 38 pain complaints - occurrence ranking O4
+Dec: 50 pain complaints - occurrence ranking O4
+Total number of pain complaints received: 577
 ----------------------------------------------------------
 File analyzed: ComplaintData2022.txt
-Analysis performed on: 2022-12-17 20:34:55.785681
+Analysis performed on: 2022-12-18 02:55:31.964818
+
+Complaint Analysis for Device A
+Jan: 45 pain complaints - occurrence ranking O4
+Feb: 48 pain complaints - occurrence ranking O4
+Mar: 50 pain complaints - occurrence ranking O4
+Apr: 48 pain complaints - occurrence ranking O4
+May: 53 pain complaints - occurrence ranking O4
+Jun: 32 pain complaints - occurrence ranking O4
+Jul: 54 pain complaints - occurrence ranking O4
+Aug: 47 pain complaints - occurrence ranking O4
+Sep: 62 pain complaints - occurrence ranking O5
+Oct: 37 pain complaints - occurrence ranking O4
+Nov: 48 pain complaints - occurrence ranking O4
+Dec: 49 pain complaints - occurrence ranking O4
+Total number of pain complaints received: 573
+----------------------------------------------------------
+File analyzed: ComplaintData2022.txt
+Analysis performed on: 2022-12-18 02:56:38.739286
 
 Complaint Analysis for SKU 10002
-Jan: 1 embolism complaints - occurrence ranking O5
-Feb: 1 embolism complaints - occurrence ranking O5
-Mar: 0 embolism complaints - occurrence ranking O1
-Apr: 0 embolism complaints - occurrence ranking O1
-May: 0 embolism complaints - occurrence ranking O1
-Jun: 0 embolism complaints - occurrence ranking O1
-Jul: 1 embolism complaints - occurrence ranking O5
-Aug: 0 embolism complaints - occurrence ranking O1
-Sep: 0 embolism complaints - occurrence ranking O1
-Oct: 0 embolism complaints - occurrence ranking O1
-Nov: 0 embolism complaints - occurrence ranking O1
-Dec: 3 embolism complaints - occurrence ranking O5
-Total number of embolism complaints received: 6
+Jan: 1 infection complaints - occurrence ranking O5
+Feb: 0 infection complaints - occurrence ranking O1
+Mar: 1 infection complaints - occurrence ranking O5
+Apr: 0 infection complaints - occurrence ranking O1
+May: 0 infection complaints - occurrence ranking O1
+Jun: 1 infection complaints - occurrence ranking O5
+Jul: 0 infection complaints - occurrence ranking O1
+Aug: 0 infection complaints - occurrence ranking O1
+Sep: 0 infection complaints - occurrence ranking O1
+Oct: 1 infection complaints - occurrence ranking O5
+Nov: 0 infection complaints - occurrence ranking O1
+Dec: 0 infection complaints - occurrence ranking O1
+Total number of infection complaints received: 4
+----------------------------------------------------------
+File analyzed: ComplaintData2022.txt
+Analysis performed on: 2022-12-18 03:21:51.641557
+
+Complaint Analysis for SKU 10002
+Jan: 1 infection complaints - occurrence ranking O5
+Feb: 0 infection complaints - occurrence ranking O1
+Mar: 1 infection complaints - occurrence ranking O5
+Apr: 0 infection complaints - occurrence ranking O1
+May: 0 infection complaints - occurrence ranking O1
+Jun: 1 infection complaints - occurrence ranking O5
+Jul: 0 infection complaints - occurrence ranking O1
+Aug: 0 infection complaints - occurrence ranking O1
+Sep: 0 infection complaints - occurrence ranking O1
+Oct: 1 infection complaints - occurrence ranking O5
+Nov: 0 infection complaints - occurrence ranking O1
+Dec: 0 infection complaints - occurrence ranking O1
+Total number of infection complaints received: 4
+----------------------------------------------------------
+File analyzed: ComplaintData2022.txt
+Analysis performed on: 2022-12-18 03:24:04.521428
+
+Complaint Analysis for SKU 10002
+Jan: 1 infection complaints - occurrence ranking O5
+Feb: 0 infection complaints - occurrence ranking O1
+Mar: 1 infection complaints - occurrence ranking O5
+Apr: 0 infection complaints - occurrence ranking O1
+May: 0 infection complaints - occurrence ranking O1
+Jun: 1 infection complaints - occurrence ranking O5
+Jul: 0 infection complaints - occurrence ranking O1
+Aug: 0 infection complaints - occurrence ranking O1
+Sep: 0 infection complaints - occurrence ranking O1
+Oct: 1 infection complaints - occurrence ranking O5
+Nov: 0 infection complaints - occurrence ranking O1
+Dec: 0 infection complaints - occurrence ranking O1
+Total number of infection complaints received: 4
 ----------------------------------------------------------
