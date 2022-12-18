@@ -6,6 +6,7 @@ Complaint Library
 '''
 
 from matplotlib import pyplot as plt
+#from matplotlib import axes
 
 Divider = "----------------------------------------------------------"
 
@@ -216,8 +217,12 @@ def AnalysisResults(harm, stack, units):
     return y_ComplaintCount, y_OccurrenceRanking
 
 # Function defined to plot line chart of the analysis results using Matplotlib 
-def PlotGraph(y_axis, title, y_label):
-    plt.plot(MonthList, y_axis)
+def PlotGraph(y_axisComplaint, y_axisOccurrence, title, y_label):
+    # Plots line graph with months on x axis and # of complaints received on y axis
+    plt.plot(MonthList, y_axisComplaint, 'bo-')
+    # Plots text for each datapoint on line graph indicating the occurrence ranking
+    for i in range(12):
+        plt.text(MonthList[i], y_axisComplaint[i], y_axisOccurrence[i])
     plt.title(title)
     plt.xlabel("Month")
     plt.ylabel(y_label)
@@ -247,8 +252,5 @@ def ResultOutput(AnalysisObject, harm, stack, units, date, filename):
     print("Complaint Analysis for", AnalysisObject)
     y_ComplaintCount, y_OccurrenceRanking = AnalysisResults(harm, stack, units)
     # Plot created for - Complaint Count vs Month
-    PlotGraph(y_ComplaintCount, (AnalysisObject, "- Complaints received per month for", harm), "# of Complaints")
-    # Plot created for - Occurrence Ranking vs Month
-    PlotGraph(y_OccurrenceRanking, (AnalysisObject, "- Occurrence ranking per month for", harm), "Occurrence Ranking")
-    # Report created using CreateReport function
+    PlotGraph(y_ComplaintCount, y_OccurrenceRanking, (AnalysisObject + " - analysis of " + str(harm).replace("_", " ") + " complaints"), "# of Complaints")
     CreateReport(AnalysisObject, y_ComplaintCount, y_OccurrenceRanking, harm, date, filename)
