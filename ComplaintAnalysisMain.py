@@ -135,6 +135,7 @@ def main():
                 AnalysisStack = ComplaintLib.CreateDeviceStack(ComplaintList, skuListA, skuListB, deviceType, i)
             # Program prints, creates report, and creates plots of the analysis results
             ComplaintLib.ResultOutput(AnalysisObject, i, AnalysisStack, UnitsSold, date, ComplaintFile)
+        ComplaintLib.plt.show()
     # If the user chose to analyze one harm, data stack is created for that harm and analyzed
     else:
         if AnalysisType == "1":
@@ -143,6 +144,7 @@ def main():
             AnalysisStack = ComplaintLib.CreateDeviceStack(ComplaintList, skuListA, skuListB, deviceType, ComplaintHarm)
         # Program prints, creates report, and creates plots of the analysis results
         ComplaintLib.ResultOutput(AnalysisObject, ComplaintHarm, AnalysisStack, UnitsSold, date, ComplaintFile)
+    ComplaintLib.plt.show()
 
     # Prompt user to rerun or quit program
     print("Thank you for using the Medical Device Complaint Analysis Tool!")

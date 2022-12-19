@@ -226,7 +226,6 @@ def PlotGraph(y_axisComplaint, y_axisOccurrence, title, y_label):
     plt.title(title)
     plt.xlabel("Month")
     plt.ylabel(y_label)
-    plt.show()
 
 # Function defined to create report of the analysis results
 def CreateReport(AnalysisObject, ComplaintCount, OccurrenceRanking, harm, date, filename):
