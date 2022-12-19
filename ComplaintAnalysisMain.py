@@ -82,16 +82,6 @@ def InputHarm():
                 return harm
         print(Divider)
         harm = input("Please enter one of the options listed above: ")
-
-# Function defined to prompt user to rerun or quit program
-def InputRerun():
-    print("Thank you for using the Medical Device Complaint Analysis Tool!")
-    print("Enter 1 to perform another analysis")
-    print("Enter any other other character to quit program")
-    RerunInput = input("")
-    if RerunInput == "1":
-        print(Divider)
-        main()
     
 def main():
     # Start of Complaint Analysis tool
@@ -154,7 +144,14 @@ def main():
         # Program prints, creates report, and creates plots of the analysis results
         ComplaintLib.ResultOutput(AnalysisObject, ComplaintHarm, AnalysisStack, UnitsSold, date, ComplaintFile)
 
-    InputRerun()
+    # Prompt user to rerun or quit program
+    print("Thank you for using the Medical Device Complaint Analysis Tool!")
+    print("Enter 1 to perform another analysis")
+    print("Enter any other other character to quit program")
+    RerunInput = input("")
+    if RerunInput == "1":
+        print(Divider)
+        main()
     
 if __name__ == '__main__':
     main()
