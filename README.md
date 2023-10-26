@@ -7,7 +7,7 @@ Table 1: Probability of Occurrence Rankings
 This tool was created for a medical device company which manufactures two devices (Device A and Device B) with 9 known harms applicable to each device. The 9 known harms are: bleeding, pain, allergic reaction, injection, hematoma, nervus injury, embolism, cardiovascular collapse, and death.
 
 # Data
-There are three data files provided. One file containing complaint data for Device A and Device B. Two files containing device data, one file for each device.
+There are three data files provided. One file containing complaint data for Device A and Device B. Two files containing sku and sales data, one file for each device.
 
 ## Complaint Data File
 Filename: ComplaintData2022
