@@ -4,7 +4,7 @@ The Medical Device Complaint Analysis Tool analyzes customer complaint data to d
 Table 1: Probability of Occurrence Rankings
 ![image](https://github.com/enr21/ComplaintAnalysis/assets/119016017/be869c97-7417-461a-a9cf-f4bd269f9583)
 
-This tool was created for a medical device company which manufactures two devices (Device A and Device B) with 9 known harms applicable to each device. The 9 known harms are: bleeding, pain, allergic reaction, injection, hematoma, nervus injury, embolism, cardiovascular collapse, and death.
+This tool was created for a medical device company which manufactures two devices (Device A and Device B) with 9 known harms applicable to each device. The 9 known harms are: bleeding, pain, allergic reaction, injection, hematoma, nerve injury, embolism, cardiovascular collapse, and death.
 
 # Data
 There are three data files provided. One file containing complaint data for Device A and Device B. Two files containing sku and sales data, one file for each device.
