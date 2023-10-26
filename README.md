@@ -1,5 +1,5 @@
 # Complaint Analysis Tool Background
-The Medical Device Complaint Analysis Tool analyzes customer complaint data to determine the occurrence ranking of a harm per the risk management medical device standard ISO 14971:2019 (Table 1).
+The Medical Device Complaint Analysis Tool analyzes customer complaint data to determine the occurrence ranking of a harm per the risk management medical device standard ISO 14971:2019. The probability of occurrence is calculated for each month (number of complaints received for a given harm / units sold) and converted to an occurrence ranking per Table 1.
 
 Table 1: Probability of Occurrence Rankings
 ![image](https://github.com/enr21/ComplaintAnalysis/assets/119016017/be869c97-7417-461a-a9cf-f4bd269f9583)
