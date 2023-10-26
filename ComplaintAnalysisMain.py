@@ -147,7 +147,7 @@ def main():
     # Prompt user to rerun or quit program
     print("Thank you for using the Medical Device Complaint Analysis Tool!")
     print("Enter 1 to perform another analysis")
-    print("Enter any other other character to quit program")
+    print("Enter any other character to quit program")
     RerunInput = input("")
     if RerunInput == "1":
         print(Divider)
