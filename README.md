@@ -16,6 +16,7 @@ The ComplaintData2022 file contains a list of 10,000+ complaints for the year 20
 
 ## Device Info Data Files
 Filename for Device A: skuListA
+
 Filename for Device B: skuListB
 
 Each data file contains a list of SKUs representing the device in column 1. For each SKU, the file identifies the number of units sold for each month of 2022 in columns 2 to 13.
